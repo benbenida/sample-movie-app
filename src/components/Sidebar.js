@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 const NavGroup = styled.div`
    margin-bottom: 1.75em;
@@ -17,7 +18,7 @@ const Sidebar = () => {
          <div>
             <NavGroup>
             <NavGroupTitle>MENU</NavGroupTitle>
-               <a className="d-block sidenav-a" href='#'>Home</a>
+               <NavLink exact to="/" activeClassName="selected" className="d-block sidenav-a">Home</NavLink>
                <a className="d-block sidenav-a" href='#'>Community</a>
                <a className="d-block sidenav-a" href='#'>Discovery</a>
                <a className="d-block sidenav-a" href='#'>Coming soon</a>

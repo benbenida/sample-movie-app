@@ -1,5 +1,7 @@
 // Modules
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
+
 import axios from 'axios'
 import { Col, Row, Container } from 'react-bootstrap'
 
@@ -29,22 +31,35 @@ const App = () => {
   }
   return (
     <div className="App">
-      <Container>
-        <Row>
-          <Col>
-            <Sidebar />
-          </Col>
-          <Col xs={8}>
-            <SearchResult results={results} query={query} />
-          </Col>
-          <Col>
-            <SearchForm 
-              handleSubmit={handleSubmit}
-              handleChange={handleChange}
-            />
-          </Col>
-        </Row>
-      </Container>
+      <Router>
+        <Container>
+          <Row>
+            <Col xs={2}>
+              <Sidebar />
+            </Col>
+            <Col xs={8}>
+              <main>
+                <Switch>
+                  <Route path="/search">
+                    <SearchResult results={results} query={query} />
+                  </Route>
+                  <Route path="/">
+                    <h1>Homepage/Landing</h1>
+                    <p>sample text</p>
+                  </Route>
+                </Switch>
+              </main>
+            </Col>
+            <Col xs={2}>
+              <SearchForm 
+                handleSubmit={handleSubmit}
+                handleChange={handleChange}
+              />
+            </Col>
+          </Row>
+        </Container>
+      </Router>
+      
     </div>
   )
 }

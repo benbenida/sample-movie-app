@@ -2,11 +2,13 @@
 :root {
    --header-color: #d22f27;
    --opaque-white: #ffffffaf;
+   --main-border: #ffffff34;
 }
 
 body {
    margin: 0;
    background-color: #191a1f;
+   color: var(--opaque-white);
 }
 
 h1 {
@@ -22,15 +24,55 @@ h6 {
    color: var(--opaque-white);
 }
 
+.App {
+   margin-top: 1em;
+}
+
 .sidenav-a {
    letter-spacing: 0.15rem;
    text-decoration: none;
-   padding-bottom: 0.5rem;
+   padding: 0.25rem 0rem;
+   margin-bottom: 0.25rem;
    color: var(--opaque-white);
    font-size: 0.95rem;
-   transition: all ease-in-out 125ms;
+   transition: color ease-in-out 125ms;
+   transition: border ease-in-out 250ms;
 }
 
 .sidenav-a:hover {
    color: var(--header-color);
+}
+
+.card {
+   min-height: 390px;
+   margin-bottom: 1em;
+   border-radius: 15px;
+   border: var(--opaque-white) 1px solid;
+   overflow: hidden;
+   transition: all ease-in-out 125ms;
+}
+
+.card:hover {
+   transform: scale(1.025);
+}
+
+.card-body {
+   background-color: #191a1f;
+   color: var(--opaque-white);
+}
+
+.primary-color {
+   color: var(--header-color) !important;
+}
+
+.selected {
+   border-right: var(--header-color) solid 3px;
+   color: var(--header-color);
+}
+
+main {
+   border-left: var(--main-border) 0.025rem solid;
+   border-right: var(--main-border) 0.025rem solid;
+   padding: 1rem 2em;
+   min-height: 100vh;
 }

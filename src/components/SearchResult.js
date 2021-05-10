@@ -11,9 +11,9 @@ const SearchResult = ({results, query}) => {
 
    return(
       <div>
-         <h1>
+         <h2 className="primary-color">
             Search results for '{query}'
-         </h1>
+         </h2>
          <Container fluid>
             <Row>
                {resultsComponent}
