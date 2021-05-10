@@ -18,23 +18,23 @@ const Sidebar = () => {
          <div>
             <NavGroup>
             <NavGroupTitle>MENU</NavGroupTitle>
-               <NavLink exact to="/" activeClassName="selected" className="d-block sidenav-a">Home</NavLink>
-               <a className="d-block sidenav-a" href='#'>Community</a>
-               <a className="d-block sidenav-a" href='#'>Discovery</a>
-               <a className="d-block sidenav-a" href='#'>Coming soon</a>
+               <NavLink exact to="/" activeClassName="selected" className="d-block sidenav-a" id="home"><i class="fas fa-home"></i> Home</NavLink>
+               <NavLink to="/" className="d-block sidenav-a"><i class="fas fa-users"></i> Community</NavLink>
+               <NavLink to="/" className="d-block sidenav-a"><i class="fas fa-globe"></i> Discovery</NavLink>
+               <NavLink to="/" className="d-block sidenav-a"><i class="far fa-clock"></i> Coming soon</NavLink>
             </NavGroup>
 
             <NavGroup>
             <NavGroupTitle>Social</NavGroupTitle>
-               <a className="d-block sidenav-a" href='#'>Friends</a>
-               <a className="d-block sidenav-a" href='#'>Parties</a>
-               <a className="d-block sidenav-a" href='#'>Media</a>
+               <NavLink to="/" className="d-block sidenav-a"><i class="fas fa-user-friends"></i> Friends</NavLink>
+               <NavLink to="/" className="d-block sidenav-a"><i class="fas fa-handshake"></i> Parties</NavLink>
+               <NavLink to="/" className="d-block sidenav-a"><i class="fas fa-photo-video"></i> Media</NavLink>
             </NavGroup>
 
             <NavGroup>
             <NavGroupTitle>General</NavGroupTitle>
-               <a className="d-block sidenav-a" href='#'>Settings</a>
-               <a className="d-block sidenav-a" href='#'>Logout</a>
+               <NavLink to="/" className="d-block sidenav-a"><i class="fas fa-cog"></i> Settings</NavLink>
+               <NavLink to="/" className="d-block sidenav-a"><i class="fas fa-sign-out-alt"></i> Logout</NavLink>
             </NavGroup>
          </div>
       </div>

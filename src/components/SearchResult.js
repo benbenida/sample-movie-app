@@ -8,7 +8,7 @@ const SearchResult = ({results, query}) => {
          </Col>
       )
    ) : []
-
+   
    return(
       <div>
          <h2 className="primary-color">

@@ -9,6 +9,7 @@ import { Col, Row, Container } from 'react-bootstrap'
 import Sidebar from './components/Sidebar'
 import SearchResult from './components/SearchResult'
 import SearchForm from './components/SearchForm'
+import RSidebar from './components/RSidebar'
 
 // Stylesheets
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -24,7 +25,7 @@ const App = () => {
   }
 
   const handleSubmit = () => {
-    axios.get(`http://www.omdbapi.com/?s=${query}&apiKey=${process.env.REACT_APP_OMDB_API_KEY}&type=movie`)
+    axios.get(`http://www.omdbapi.com/?s=${query}&apiKey=${process.env.REACT_APP_OMDB_API_KEY}&type=movie&page=1`)
       .then(res => {
         setResults(res.data.Search)
       })
@@ -40,7 +41,7 @@ const App = () => {
             <Col xs={8}>
               <main>
                 <Switch>
-                  <Route path="/search">
+                  <Route path={`/search/${query}`}>
                     <SearchResult results={results} query={query} />
                   </Route>
                   <Route path="/">
@@ -51,10 +52,13 @@ const App = () => {
               </main>
             </Col>
             <Col xs={2}>
-              <SearchForm 
-                handleSubmit={handleSubmit}
-                handleChange={handleChange}
-              />
+              <RSidebar>
+                <SearchForm 
+                query={query}
+                  handleSubmit={handleSubmit}
+                  handleChange={handleChange}
+                />
+              </RSidebar>
             </Col>
           </Row>
         </Container>

@@ -10,13 +10,13 @@ const SearchBox = styled.input`
    color: #ffffffaf;
 `
 
-const SearchForm = ({handleSubmit, handleChange, history}) => {
+const SearchForm = ({handleSubmit, handleChange, history, query}) => {
    const inputChange = (e) => handleChange(e.target.value)
 
    const formSubmit = (e) => {
       e.preventDefault()
       handleSubmit()
-      history.push('/search')
+      history.push(`/search/${query}`) // Redirects the page to /search
    }
 
    return (
