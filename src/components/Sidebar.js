@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
+import logo from '../assets/images/logo.png'
+
 const NavGroup = styled.div`
    margin-bottom: 1.75em;
    font-size: 1rem;
@@ -14,14 +16,40 @@ const NavGroupTitle = styled.h3`
 const Sidebar = () => {
    return (
       <div>
-         <h1>Header</h1>
+         <NavLink to="/"><img src={logo} width="150" /></NavLink>
          <div>
             <NavGroup>
             <NavGroupTitle>MENU</NavGroupTitle>
-               <NavLink exact to="/" activeClassName="selected" className="d-block sidenav-a" id="home"><i class="fas fa-home"></i> Home</NavLink>
-               <NavLink to="/" className="d-block sidenav-a"><i class="fas fa-users"></i> Community</NavLink>
-               <NavLink to="/" className="d-block sidenav-a"><i class="fas fa-globe"></i> Discovery</NavLink>
-               <NavLink to="/" className="d-block sidenav-a"><i class="far fa-clock"></i> Coming soon</NavLink>
+               <NavLink exact 
+                  to="/" 
+                  activeClassName="selected" 
+                  className="d-block sidenav-a" 
+                  id="home"
+               >
+                  <i class="fas fa-home"></i> Home
+               </NavLink>
+
+               <NavLink exact
+                  to="/community" 
+                  activeClassName="selected" 
+                  className="d-block sidenav-a"
+               >
+                  <i class="fas fa-users"></i> Community
+               </NavLink>
+
+               <NavLink 
+                  to="/" 
+                  className="d-block sidenav-a"
+               >
+                  <i class="fas fa-globe"></i> Discovery
+               </NavLink>
+
+               <NavLink 
+                  to="/" 
+                  className="d-block sidenav-a"
+               >
+                  <i class="far fa-clock"></i> Coming soon
+               </NavLink>
             </NavGroup>
 
             <NavGroup>
@@ -34,6 +62,8 @@ const Sidebar = () => {
             <NavGroup>
             <NavGroupTitle>General</NavGroupTitle>
                <NavLink to="/" className="d-block sidenav-a"><i class="fas fa-cog"></i> Settings</NavLink>
+               <NavLink to="/login" activeClassName="selected" className="d-block sidenav-a"><i class="fas fa-sign-in-alt"></i> Login</NavLink>
+               <NavLink to="/register" activeClassName="selected" className="d-block sidenav-a"><i class="fas fa-user-plus"></i> Register</NavLink>
                <NavLink to="/" className="d-block sidenav-a"><i class="fas fa-sign-out-alt"></i> Logout</NavLink>
             </NavGroup>
          </div>

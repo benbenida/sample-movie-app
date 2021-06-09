@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Container, Col, Row } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import axios from 'axios'
 
@@ -26,10 +27,12 @@ const RSidebar = (props) => {
    const [ faveMovies, setFaveMovies ] = useState([])
    
    useEffect(() => {
-      for (let faveMovieID of faveMovieIDs){
-         fetchMovieById(faveMovieID).then(res => {
-            return setFaveMovies(prevData => [...prevData, res])
-         })
+      if (faveMovies.length == 0){
+         for (let faveMovieID of faveMovieIDs){
+            fetchMovieById(faveMovieID).then(res => {
+               return setFaveMovies(prevData => [...prevData, res])
+            })
+         }
       }
    }, [])
 
@@ -49,6 +52,7 @@ const RSidebar = (props) => {
          <NavGroup>
             <NavGroupTitle>Favorites</NavGroupTitle>
                <div>
+                  {faveMovieComponents}
                   {faveMovieComponents}
                </div>
          </NavGroup>

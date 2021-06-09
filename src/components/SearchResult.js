@@ -1,13 +1,13 @@
 import { Card, Container, Row, Col } from 'react-bootstrap';
 
 const SearchResult = ({results, query}) => {
-   const resultsComponent = results.length > 0 ? results.map(
+   const resultsComponent = results && results.length > 0 ? results.map(
       (data, idx) => (
          <Col md={3} xs={6} key={idx}>
             <ResultItem key={idx} title={data.Title} poster={data.Poster} year={data.Year} />
          </Col>
       )
-   ) : []
+   ) : <h1>No movie found</h1>
    
    return(
       <div>
